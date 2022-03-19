@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-lg navbar-light my-nav">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" class="" width="187px" height="64px" alt="Flowbite Logo" />
+                    <img src="{{ asset('/') }}frontend/images/logo.png" class="" width="187px" height="64px" alt="Flowbite Logo" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -50,7 +50,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="active" href="#">
-                                <img src="images/search-icon.png" alt="" />
+                                <img src="{{ asset('/') }}frontend/images/search-icon.png" alt="" />
                             </a>
                         </li>
                     </ul>
@@ -189,7 +189,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <img src="images/logo.png" alt="">
+                    <img src="{{ asset('/') }}frontend/images/logo.png" alt="">
                     <p class="text-white my-2">Rokto is an automated blood service that connects blood searchers with
                         voluntary blood donors in a moment through SMS and website.</p>
                 </div>
