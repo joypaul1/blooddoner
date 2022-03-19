@@ -1,0 +1,225 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* navbar */
+.my-nav{
+    background-color: #FFFFFF;
+}
+.nav-link{
+    color: #D92027 !important;
+    border-bottom: 2px solid transparent;
+    font-size: 16px;
+    margin: 0 10px;
+    font-weight: 500;
+}
+.nav-link:hover{
+    color: #D92027;
+    border-bottom: 2px solid #D92027;
+}
+.nav-item img{
+    margin-top: 8px;
+}
+
+/* banner */
+.header_search_area {
+    background: url(/images/banner.png) no-repeat scroll 0 0 / cover;
+    position: relative;
+    z-index: 2;
+    height: 581px;
+}
+.header_search_area::before {
+    content: "";
+    position: absolute;
+    background: #000;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.8;
+}
+.banner-text{
+    padding-top: 10%;
+}
+.banner-text h1{
+    color: #FFFFFF;
+    font-size: 44px;
+    text-shadow: 0px 0px 10px rgb(0 0 0 / 30%);
+    line-height: 45px;
+}
+.banner-text h3{
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.my-btn{
+    display: inline-block;
+    line-height: 1;
+    background-color: #D92027;
+    font-size: 15px;
+    padding: 12px 34px;
+    outline: none;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    border: none;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+.my-btn:hover{
+    background-color: #fff;
+    border-radius: 3px;
+    color: #D92027;
+    transition: 1s;
+}
+.my-btn-2{
+    display: inline-block;
+    line-height: 1;
+    background-color: #fff;
+    font-size: 15px;
+    padding: 12px 34px;
+    outline: none;
+    border-radius: 3px;
+    color: #D92027;
+    text-align: center;
+    font-weight: 500;
+    border: none;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+.my-btn-2:hover{
+    background-color:#D92027;
+    border-radius: 3px;
+    color: #fff;
+    transition: 1s;
+}
+
+/* info-get-blood-img */
+
+.info-get-blood-img img{
+    width: 500px;
+}
+.getblood-info-text {
+    margin-top: 10%;
+}
+.getblood-info-text h3 {
+    font-size: 30px;
+    color: #D92027;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.getblood-info-text p {
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+}
+.getblood-info-text ul li {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+/* our network */
+.section-heading{
+    font-size: 30px;
+    color: #D92027;
+    font-weight: 700;
+}
+
+/* our network */
+.our-network{
+    padding: 50px 0;
+}
+
+.our-network-box i{
+    color: #D92027;
+    font-size: 40px;
+    margin: 20px 0;
+}
+.our-network-box h3{
+    font-size: 30px;
+    color: #000;
+}
+
+/* faqs */
+.faqs{
+    margin: 20px 0;
+}
+.faqs p{
+    font-size: 18px;
+}
+
+/* Blood search  part*/
+.blood-search-container{
+    background-color: #EB2C2926;
+    padding: 60px 0;
+}
+.form-select,.date{
+    border: 1px solid #333;
+}
+.form-select:focus{
+    
+    outline: 0;
+    box-shadow:none;
+}
+.search_btn {
+    margin-top: 32px !important;
+    border: 0px;
+    padding: 7px 27px;
+    font-size: 16px;
+    font-weight: 500;
+    background: #D92027;
+    transition: all linear 0.3s;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+}
+.search_btn:hover{
+    color: #fff;
+}
+
+/* footer */
+#footer{
+    padding: 50px 0;
+    background-color: #333;
+}
+#footer ul li{
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+    margin: 7px 0;
+}
+#footer ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+#footer a {
+     text-decoration: none;
+     color: white;
+     cursor: pointer;
+}
+#footer a:hover{
+     letter-spacing: 2px;
+     transition: 1s;
+}
+@media only screen and (max-width: 600px) {
+    .info-get-blood-img img {
+      width: 100%;
+    }
+    .my-btn{
+        margin-bottom: 7px;
+    }
+    .my-btn-2{
+        margin-left: 0 !important;
+    }
+  }
