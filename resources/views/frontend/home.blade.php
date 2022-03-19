@@ -1,8 +1,19 @@
 @extends('frontend.layouts.app')
+@push('css')
 
+<style>
+.header_search_area {
+
+    /* background: url('frontend/images/banner.png') no-repeat scroll 0 0 / cover; */
+    position: relative;
+    z-index: 2;
+    height: 581px;
+}
+</style>
+@endpush
 @section('content')
     <!-- banner -->
-    <section class="header_search_area">
+    <section class="header_search_area" style="background:url({{ asset('frontend/images/banner.png') }}) no-repeat scroll 0 0 / cover">
         <div class="container mx-auto">
           <div class="banner-text py-10">
             <h1 class="text-white font-semibold">

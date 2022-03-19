@@ -24,12 +24,7 @@
 }
 
 /* banner */
-.header_search_area {
-    background: url(/images/banner.png) no-repeat scroll 0 0 / cover;
-    position: relative;
-    z-index: 2;
-    height: 581px;
-}
+
 .header_search_area::before {
     content: "";
     position: absolute;
@@ -165,7 +160,7 @@
     border: 1px solid #333;
 }
 .form-select:focus{
-    
+
     outline: 0;
     box-shadow:none;
 }

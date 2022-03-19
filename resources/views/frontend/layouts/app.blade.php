@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('/')}}frontend/css/login.css" />
     <title>home</title>
 </head>
+@stack('css')
 
 <body>
     <header>
