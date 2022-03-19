@@ -3,8 +3,6 @@
 
 <style>
 .header_search_area {
-
-    /* background: url('frontend/images/banner.png') no-repeat scroll 0 0 / cover; */
     position: relative;
     z-index: 2;
     height: 581px;
