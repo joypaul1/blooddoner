@@ -1,8 +1,8 @@
 @extends('backend.layouts.master')
 
-@section('title','customer-List')
+@section('title','USER-List')
 @section('page-header')
-    <i class="fa fa-list"></i> customer List
+    <i class="fa fa-list"></i> USER List
 @stop
 
 @push('css')
@@ -52,17 +52,20 @@
               </select>
           </td>
           <td>
-              <select class="chosen-select" id="postCode" name="post_code_id">
+              <select class="chosen-select" id="post_code_id" name="post_code_id">
                   <option value="">- Post Code -</option>
               </select>
           </td>
           <td>
-              <input type="text"
-                     id="name"
-                     name="name"
-                     placeholder="Name"
-                     value="{{request()->query('name')}}"
-                     class="input-sm form-control text-center">
+            <select class="chosen-select" id="blood_id" name="blood_id">
+                <option value="">- Blood Group -</option>
+                  @foreach($bloods as $blood)
+                    <option value="{{ $division->id }}"
+                        {{ request()->query('blood_id') == $blood->id ? 'selected' : '' }}>
+                        {{ $blood->name }}
+                    </option>
+                  @endforeach
+            </select>
           </td>
           <td>
               <div class="btn-group btn-group-mini btn-corner">
@@ -156,11 +159,11 @@
                 method   : 'GET',
                 dataType : 'json',
                 success  : function(data) {
-                    $("#city_id").empty();
+                    $("#post_code_id").empty();
                     $.each(data.cities, function (key, value) {
-                        $("#city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                        $("#post_code_id").append('<option value="' + value.id + '">' + value.name + '</option>');
                     });
-                    $("#city_id").trigger("chosen:updated");
+                    $("#post_code_id").trigger("chosen:updated");
                 },
                 error: function(errorMessage) {
                     alert(errorMessage);
@@ -178,9 +181,9 @@
                 success  : function(data) {
                     $("#post_code_id").empty();
                     $.each(data.cities, function (key, value) {
-                        $("#post_code_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                        $("#city_id").append('<option value="' + value.id + '">' + value.name + '</option>');
                     });
-                    $("#post_code_id").trigger("chosen:updated");
+                    $("#city_id").trigger("chosen:updated");
                 },
                 error: function(errorMessage) {
                     alert(errorMessage);

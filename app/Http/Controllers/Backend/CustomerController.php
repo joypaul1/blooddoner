@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\BloodGroup;
 use App\Models\Division;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class CustomerController extends Controller
     public function index()
     {
         $divisions = Division::get(['id', 'name']);
-        return view('backend.customer.index', compact('divisions'));
+        $bloods = BloodGroup::get(['id', 'name']);
+        return view('backend.customer.index', compact('divisions', 'bloods'));
     }
 
     /**

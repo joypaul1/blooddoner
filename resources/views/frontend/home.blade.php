@@ -27,7 +27,7 @@
           <div class="row">
             <div class="col-lg-6 col-sm-12">
               <div class="info-get-blood-img">
-                <img src="images/blood-sticker.png" alt="" />
+                <img src="{{ asset('/') }}frontend/images/blood-sticker.png" alt="" />
               </div>
             </div>
             <div class="col-lg-6 col-sm-12">

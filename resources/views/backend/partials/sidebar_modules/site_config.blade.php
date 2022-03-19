@@ -36,7 +36,7 @@
                     <b class="arrow"></b>
                 </li>
             </ul>
-            <ul class="submenu">
+            {{-- <ul class="submenu">
                 <li class="{{ $routeName === 'backend.site_config.offer' ? 'open' : ''}}">
                     <a href="{{route('backend.site_config.offer.index')}}">
                         <i class="menu-icon fa fa-caret-right"></i>
@@ -44,8 +44,8 @@
                     </a>
                     <b class="arrow"></b>
                 </li>
-            </ul>
-            
+            </ul> --}}
+
             <ul class="submenu">
                 <li class="{{ $routeName === 'backend.site_config.quick-page' ? 'open' : ''}}">
                     <a href="{{route('backend.site_config.quick-page.index')}}">
@@ -55,8 +55,8 @@
                     <b class="arrow"></b>
                 </li>
             </ul>
-            
-            
+
+
             <ul class="submenu">
                 <li class="{{ $routeName === 'backend.site_config.info' ? 'open' : ''}}">
                     <a href="{{route('backend.site_config.info')}}">
@@ -66,5 +66,5 @@
                     <b class="arrow"></b>
                 </li>
             </ul>
-            
+
         </li>

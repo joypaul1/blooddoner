@@ -116,10 +116,9 @@ class PostCodeController extends Controller
             ->with('message', 'Post-code deleted successfully!');
     }
 
-    public function getCity($id)
+    public function getPostCode($id)
     {
-        return response()->json(['cities' => PostCode::where('division_id', $id)->get(['id', 'name']) ]) ;
+        return response()->json(['cities' => PostCode::where('city_id', $id)->get(['id', 'name']) ]) ;
     }
-
 
 }
