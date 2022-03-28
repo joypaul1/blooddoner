@@ -9,7 +9,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/e6a5841b3b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}" />
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
+    {{-- <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" /> --}}
     <!-- Custom css style -->
     <link rel="stylesheet" href="{{ asset('/')}}frontend/css/style_1.css" />
     <link rel="stylesheet" href="{{ asset('/')}}frontend/css/login.css" />
@@ -38,16 +38,21 @@
                             <a class="nav-link active" href="/about-us">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/donner-result.html">Search Donors</a>
+                            <a class="nav-link active" href="/donner-result">Search Donors</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/profile-step-one.html">become Donors</a>
+                            <a class="nav-link active" href="/profile-step-one">become Donors</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/blood-request-first-step.html">Add Blood Request</a>
+                            <a class="nav-link active" href="/blood-request-first-step">Add Blood Request</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/login">login</a>
+                        @guest
+                            <a class="nav-link active" href="/user-login">login</a>
+                        @else
+                            <a class="nav-link active" href="/login">{{ auth()->user()->name }}</a>
+
+                        @endguest
                         </li>
                         <li class="nav-item">
                             <a class="active" href="#">
