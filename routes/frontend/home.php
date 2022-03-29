@@ -21,7 +21,8 @@ Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
 Route::group(['prefix' => '/', 'middleware' => ['auth'], 'namespace' => 'Frontend'], function () {
     Route::get('/protected', 'HomeController@protected'); // test purpose
 
-    Route::get('/become-Donor', 'HomeController@profile');
+    Route::get('/profile/{id}', 'HomeController@profile');
+    Route::get('/become-Donor', 'HomeController@becomeDonor');
     Route::post('/profile-save', 'HomeController@profileSave');
 });
 Route::get('logout', function(){

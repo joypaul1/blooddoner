@@ -25,6 +25,11 @@ class HomeController extends Controller
         return view('frontend.login');
 
     }
+    public function  profile($id)
+    {
+        $user = User::find($id);
+        return view('frontend.profile', compact('user'));
+    }
 
     public function aboutUs()
     {
@@ -49,7 +54,7 @@ class HomeController extends Controller
         return PostCode::where('city_id', $request->id)->get(['id', 'name']);
     }
 
-    public function profile()
+    public function becomeDonor()
     {
 
         $divisions = Division::get(['id', 'name']);
@@ -59,13 +64,11 @@ class HomeController extends Controller
 
     public function profileSave(Request $request)
     {
-    //    dd($request->all());
         $user = User::whereId(auth()->id())->first();
         $data = $request->except(['_token', 'make_payment']);
         $time = strtotime($request->donatedate);
         $data['nextDate'] = date("Y-m-d", strtotime("+3 month", $time));
         $user->update( $data);
-        // dd($user, $request->all());
         return back();
     }
 

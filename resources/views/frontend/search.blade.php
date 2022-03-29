@@ -80,26 +80,28 @@ $pageLink='donner-search';$pageName='Search Donors'
                     </div>
                     @forelse ($users as $user)
                     <div class="col-lg-4">
-                        <div class="card shadow-lg mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-4 col-4">
-                                    <a href="donor-profile.html">
-                                        <img src="{{ asset($user->image??'-') }}" class="img-fluid h-100 rounded-start" alt="donor">
-                                    </a>
-                                </div>
-                                <div class="col-md-8 col-8">
-                                    <div class="card-body">
-                                        <ul>
-                                            <li> <span class="name">Name</span> {{ $user->name??' ' }}</li>
-                                            <li> <span class="name">Group</span>  {{ optional($user->blood)->name??' ' }} </li>
-                                            <li> <span class="name">Postal Code</span> {{ optional($user->postcode)->name??'-' }} </li>
-                                            <li> <span class="name">Last Donation</span>{{ date("d-m-Y", strtotime($user->donatedate??'-')) }}</li>
-                                        </ul>
+                        <a href="{{ url('profile', $user->id) }}">
+                            <div class="card shadow-lg mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4 col-4">
+                                            <img src="{{ asset($user->image??'-') }}" class="img-fluid h-100 rounded-start" alt="donor">
+
+                                    </div>
+                                    <div class="col-md-8 col-8">
+                                        <div class="card-body">
+                                            <ul>
+                                                <li> <span class="name">Name</span> {{ $user->name??' ' }}</li>
+                                                <li> <span class="name">Group</span>  {{ optional($user->blood)->name??' ' }} </li>
+                                                <li> <span class="name">Postal Code</span> {{ optional($user->postcode)->name??'-' }} </li>
+                                                <li> <span class="name">Last Donation</span>{{ date("d-m-Y", strtotime($user->donatedate??'-')) }}</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
+
 
                     @empty
 

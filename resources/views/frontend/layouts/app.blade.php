@@ -42,7 +42,7 @@
                             <a class="nav-link active" href="/donner-search">Search Donors</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/">become Donors</a>
+                            <a class="nav-link active" href="/become-Donor">Become Donors</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="/blood-request-first-step">Add Blood Request</a>

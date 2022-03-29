@@ -22,9 +22,11 @@
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">Account Information</h2>
+                                        <label for="">User Name</label>
+
                                         <input type="text" name="name" value="{{ auth()->user()->name ?? ' ' }}"
                                             placeholder="User Name" />
-
+                                        <label for="">Blood Group</label>
                                         <select class="form-select" name="blood_id">
                                             <option selected="">Select Blood Group </option>
                                             @foreach ($bloodGroups as $group)
@@ -34,7 +36,7 @@
                                             @endforeach
                                         </select>
                                         <br>
-
+                                        <label for="">Gender</label>
                                         <select class="form-select" aria-label="Default select example" name="gender">
                                             <option value="{{ null }}">Select Gender </option>
                                             <option value="male" {{ auth()->user()->gender == "male"?'Selected': ' ' }}>Male</option>
@@ -42,6 +44,7 @@
                                             <option value="others"  {{ auth()->user()->gender == "others"?'Selected': ' ' }}>Others</option>
                                         </select>
                                         <br>
+                                        <label for="">Date Of Birth</label>
                                         <input type="date" name="dob" value="{{ date('Y-m-d',strtotime(auth()->user()->dob)??'-') }}"
                                             placeholder="date of birth" />
                                     </div>
