@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Admin;
+use App\Models\BloodRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Aboutus;
 use App\Models\BloodGroup;
@@ -18,12 +20,16 @@ class HomeController extends Controller
     public function index()
     {
         return view('frontend.home');
+    }
 
+    public function ourTeam()
+    {
+        $teams = Admin::all();
+        return view('frontend.ourTeam', compact('teams'));
     }
     public function login()
     {
         return view('frontend.login');
-
     }
     public function  profile($id)
     {
@@ -56,10 +62,25 @@ class HomeController extends Controller
 
     public function becomeDonor()
     {
-
         $divisions = Division::get(['id', 'name']);
         $bloodGroups =BloodGroup::get(['id', 'name']);
         return view('frontend.becomeDonor',compact('divisions', 'bloodGroups'));
+    }
+    public function bloodRequest()
+    {
+        $divisions = Division::orderBy('id')->get(['id', 'name']);
+        $bloodGroups =BloodGroup::get(['id', 'name']);
+        return view('frontend.bloodRequest',compact('divisions', 'bloodGroups'));
+    }
+
+
+    function sendBloodRequest(Request $request)
+    {
+        // dd($request->all());
+        $data=  $request->all();
+        $data['user_id']=  auth()->id()??1;
+        BloodRequest::create( $data);
+        return back()->with('message', 'Send Successfully');
     }
 
     public function profileSave(Request $request)

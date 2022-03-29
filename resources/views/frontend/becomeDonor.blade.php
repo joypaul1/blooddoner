@@ -76,7 +76,7 @@
 
                                         </select>
                                         <br>
-                                        <select name="postcode_id" class="form-control" id="post_id">
+                                        <select name="postcode_id" class="form-control" id="postcode_id">
                                             <option value="{{ null }}"> - select postcode- </option>
                                             <option value="{{ auth()->user()->postcode_id }}"@if ( auth()->user()->postcode_id)
                                                 Selected
@@ -185,10 +185,9 @@
                     'id': divId
                 },
                 success: function(data) {
-                    $("#post_id").empty();
+                    $("#postcode_id").empty();
                     $.each(data, function(key, value) {
-                        $("#post_id").append('<option value="' + value.id + '" >' + value.name +
-                            '</option>');
+                        $("#postcode_id").append('<option value="' + value.id + '" >' + value.name +'</option>');
                     });
                 },
                 error: function(errorMessage) {

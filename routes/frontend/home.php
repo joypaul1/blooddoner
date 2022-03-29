@@ -14,7 +14,10 @@ Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
     Route::get('/getDivision', 'HomeController@division');
     Route::get('/getCity', 'HomeController@city');
     Route::get('/getPostCode', 'HomeController@getPostCode');
-    Route::get('/donner-search', 'HomeController@donnerSearch');
+    Route::get('/donor-search', 'HomeController@donnerSearch');
+    Route::get('/blood-request', 'HomeController@bloodRequest');
+    Route::get('/our-team', 'HomeController@ourTeam');
+    Route::post('/send-blood-request', 'HomeController@sendBloodRequest');
 });
 
 // Authenticated

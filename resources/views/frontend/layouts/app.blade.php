@@ -22,7 +22,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light my-nav">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img src="{{ asset('/') }}frontend/images/logo.png" class="" width="187px" height="64px" alt="Flowbite Logo" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -39,7 +39,7 @@
                             <a class="nav-link active" href="/about-us">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/donner-search">Search Donors</a>
+                            <a class="nav-link active" href="/donor-search">Search Donors</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="/become-Donor">Become Donors</a>
@@ -203,11 +203,11 @@
                 <div class="col-lg-4">
                     <h5 class="text-white">Links</h5>
                     <ul>
-                        <li class="text-white"><a href="#">Home</a></li>
-                        <li class="text-white"><a href="#">About</a></li>
-                        <li class="text-white"><a href="#">Search Donors</a></li>
-                        <li class="text-white"><a href="#">become Donors</a></li>
-                        <li class="text-white"><a href="#">login</a></li>
+                        <li class="text-white"><a href="/">Home</a></li>
+                        <li class="text-white"><a href="about-us">About</a></li>
+                        <li class="text-white"><a href="/donor-search">Search Donors</a></li>
+                        <li class="text-white"><a href="/become-Donor">Become Donors</a></li>
+                        <li class="text-white"><a href="/login">login</a></li>
                     </ul>
                 </div>
 
