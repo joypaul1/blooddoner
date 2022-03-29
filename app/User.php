@@ -2,6 +2,10 @@
 
 namespace App;
 
+use App\Models\BloodGroup;
+use App\Models\City;
+use App\Models\Division;
+use App\Models\PostCode;
 use App\Traits\AutoTimeStamp;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -17,9 +21,10 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    // protected $fillable = [
+    //     'name', 'email', 'password',
+    // ];
+    protected $guarded=['id'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -39,4 +44,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function division()
+    {
+        return $this->belongsTo(Division::class, 'division_id', 'id');
+    }
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id', 'id');
+    }
+    public function postcode()
+    {
+        return $this->belongsTo(PostCode::class, 'postcode_id', 'id');
+    }
+
+    public function blood()
+    {
+        return $this->belongsTo(BloodGroup::class, 'blood_id', 'id');
+    }
 }

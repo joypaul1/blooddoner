@@ -85,7 +85,6 @@
                 $.ajax({
                     url      : url,
                     method   : 'GET',
-                    // data     : 'jsonData',
                     dataType : 'json',
                     success  : function(data) {
                         $("#getCityById").empty();

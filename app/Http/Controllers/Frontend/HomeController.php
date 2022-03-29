@@ -4,7 +4,14 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Aboutus;
+use App\Models\BloodGroup;
+use App\Models\City;
+use App\Models\Division;
+use App\Models\PostCode;
+use App\User;
 use Illuminate\Http\Request;
+use NabilAnam\SimpleUpload\SimpleUpload;
+use Whoops\Run;
 
 class HomeController extends Controller
 {
@@ -29,9 +36,62 @@ class HomeController extends Controller
         return view('frontend.registration');
     }
 
-    public function protected()
+    public function division()
+    {
+        return Division::orderby('id')->get(['id', 'name']);
+    }
+    public function city(Request $request)
+    {
+        return City::where('division_id', $request->id)->get(['id', 'name']);
+    }
+    public function getPostCode(Request $request)
+    {
+        return PostCode::where('city_id', $request->id)->get(['id', 'name']);
+    }
+
+    public function profile()
     {
 
+        $divisions = Division::get(['id', 'name']);
+        $bloodGroups =BloodGroup::get(['id', 'name']);
+        return view('frontend.becomeDonor',compact('divisions', 'bloodGroups'));
+    }
+
+    public function profileSave(Request $request)
+    {
+    //    dd($request->all());
+        $user = User::whereId(auth()->id())->first();
+        $data = $request->except(['_token', 'make_payment']);
+        $time = strtotime($request->donatedate);
+        $data['nextDate'] = date("Y-m-d", strtotime("+3 month", $time));
+        $user->update( $data);
+        // dd($user, $request->all());
+        return back();
+    }
+
+
+    public function donnerSearch(Request $request)
+    {
+        $bloodGroups = BloodGroup::get(['id', 'name']);
+        $postCodes = PostCode::orderBy('name')->get(['id', 'name']);
+        $users= User::query();
+        if( $request->postcode_id){
+            $users = $users->where('postcode_id', $request->postcode_id);
+        }
+        if($request->blood_id){
+            $users = $users->where('blood_id', $request->blood_id);
+        }
+        if($request->type ){
+            if($request->type != 'All'){
+                $users =  $users->where('nextDate', '<=', $request->donate_date);
+            }
+        }
+        $users = $users->paginate(20);
+
+        return view('frontend.search', compact('bloodGroups', 'postCodes', 'users'));
+    }
+    public function protected()
+    {
         return view('frontend.protected');
     }
 }

@@ -37,9 +37,6 @@
                   </div>
                 </form>
                 <a class="text-white  mt-2" href="/user-registration">New User?</a>
-                <a class="text-white  mt-2" href="/register">New User?</a>
-
-                <p class="text-white text-center mt-3">Continue with</p>
               </div>
             </div>
           </div>

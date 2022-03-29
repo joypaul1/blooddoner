@@ -13,6 +13,7 @@
     <!-- Custom css style -->
     <link rel="stylesheet" href="{{ asset('/')}}frontend/css/style_1.css" />
     <link rel="stylesheet" href="{{ asset('/')}}frontend/css/login.css" />
+
     <title>home</title>
 </head>
 @stack('css')
@@ -38,10 +39,10 @@
                             <a class="nav-link active" href="/about-us">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/donner-result">Search Donors</a>
+                            <a class="nav-link active" href="/donner-search">Search Donors</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/profile-step-one">become Donors</a>
+                            <a class="nav-link active" href="/">become Donors</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="/blood-request-first-step">Add Blood Request</a>
@@ -50,7 +51,7 @@
                         @guest
                             <a class="nav-link active" href="/user-login">login</a>
                         @else
-                            <a class="nav-link active" href="/login">{{ auth()->user()->name }}</a>
+                            <a class="nav-link active" href="/">{{ auth()->user()->name }}</a>
 
                         @endguest
                         </li>
@@ -69,7 +70,7 @@
     <section class="blood-search-container">
         <form action="">
             <div class="container">
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-lg-2 col-md-2 mt-2">
                         <div class="form-group">
                             <label for="exampleFormControlInput1" class="form-label">Blood Group
@@ -186,7 +187,7 @@
                             <button type="submit" class="search_btn">Search</button>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </form>
     </section>
@@ -223,9 +224,12 @@
         </div>
     </footer>
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    @stack('js')
 </body>
 
 </html>

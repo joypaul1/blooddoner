@@ -43,7 +43,7 @@ class SliderController extends Controller
     {
 
         $all = $request->all();
-
+        // dd($request->image);
         $all['image'] = (new SimpleUpload)
             ->file($request->image)
             ->dirName('sliders')
