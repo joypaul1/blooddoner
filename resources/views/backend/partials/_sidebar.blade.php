@@ -21,7 +21,7 @@
         {{-- @include('backend.partials.sidebar_modules.purchase') --}}
 
         {{-- Product --}}
-        {{-- @include('backend.partials.sidebar_modules.product') --}}
+        @include('backend.partials.sidebar_modules.product')
 
          {{-- Customer --}}
         @include('backend.partials.sidebar_modules.customer')

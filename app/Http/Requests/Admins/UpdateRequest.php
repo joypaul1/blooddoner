@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Brands;
+namespace App\Http\Requests\Admins;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     public function authorize()
     {
@@ -14,8 +14,11 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|unique:brands,name',
+            'name' => 'required|string',
+            'email' => 'required|string|unique:admins,email,' . $this->admin->id,
             'image' => 'nullable|image|dimensions:min_width=100,min_height=100',
+            'password' => 'nullable|min:6|confirmed',
+            'password_confirmation' => 'nullable|min:6',
         ];
     }
 

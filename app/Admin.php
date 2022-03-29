@@ -11,10 +11,11 @@ class Admin extends Authenticatable
     use Notifiable, AutoTimeStamp;
 
     protected $guard = 'admin';
+    protected $guarded = [];
 
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    // protected $fillable = [
+    //     'name', 'email', 'password',
+    // ];
 
     protected $hidden = [
         'password', 'remember_token',

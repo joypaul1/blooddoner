@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
-@section('title','Brand List')
+@section('title','Admin List')
 @section('page-header')
-    <i class="fa fa-list"></i> Brand List
+    <i class="fa fa-list"></i> Admin List
 @stop
 @push('css')
     <style>
@@ -16,8 +16,8 @@
 @section('content')
     @include('backend.components.page_header', [
        'fa' => 'fa fa-pencil',
-       'name' => 'Create Brand',
-       'route' => route('backend.product.brands.create')
+       'name' => 'Create Admin',
+       'route' => route('backend.admins.create')
     ])
 
     <table class="table table-bordered">
@@ -25,37 +25,38 @@
         <tr>
             <th class="bg-dark" style="width: 5%">SL</th>
             <th class="bg-dark" style="width: 30%">Name</th>
-            <th class="bg-dark" style="width: 30%">Slug</th>
+            <th class="bg-dark" style="width: 30%">Designation</th>
             <th class="bg-dark" style="width: 25%">Image</th>
             <th class="bg-dark" style="width: 10%">Action</th>
         </tr>
-        @forelse($brands as $key => $brand)
+        @forelse($admins as $key => $admin)
             <tr>
+                {{-- @dd($admin->image); --}}
                 <td>{{ $key + 1 }}</td>
-                <td>{{ $brand->name }}</td>
-                <td>{{ $brand->slug }}</td>
+                <td>{{ $admin->name }}</td>
+                <td>{{ $admin->designation??" " }}</td>
                 <td>
-                    <img src="{{ asset($brand->image) }}"
+                    <img src="{{ asset($admin->image) }}"
                          height="30"
                          width="120"
                          alt="No Image">
                 </td>
                 <td>
                     <div class="btn-group btn-group-mini btn-corner">
-                        <a href="{{ route('backend.product.brands.edit', $brand->id) }}"
+                        <a href="{{ route('backend.admins.edit', $admin->id) }}"
                            class="btn btn-xs btn-info"
                            title="Edit">
                             <i class="ace-icon fa fa-pencil"></i>
                         </a>
 
                         <button type="button" class="btn btn-xs btn-danger"
-                                onclick="delete_check({{$brand->id}})"
+                                onclick="delete_check({{$admin->id}})"
                                 title="Delete">
                             <i class="ace-icon fa fa-trash-o"></i>
                         </button>
                     </div>
-                    <form action="{{ route('backend.product.brands.destroy', $brand->id)}}"
-                          id="deleteCheck_{{ $brand->id }}" method="GET">
+                    <form action="{{ route('backend.admins.destroy', $admin->id)}}"
+                          id="deleteCheck_{{ $admin->id }}" method="GET">
                         @csrf
                     </form>
                 </td>
@@ -68,7 +69,7 @@
         </tbody>
     </table>
 
-    @include('backend.partials._paginate', ['data' => $brands])
+    @include('backend.partials._paginate', ['data' => $admins])
 @endsection
 
 @push('js')
