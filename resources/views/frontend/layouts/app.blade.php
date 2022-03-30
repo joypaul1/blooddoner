@@ -45,7 +45,7 @@
                             <a class="nav-link active" href="/become-Donor">Become Donors</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/blood-request-first-step">Add Blood Request</a>
+                            <a class="nav-link active" href="/blood-request">Add Blood Request</a>
                         </li>
                         <li class="nav-item">
                         @guest
