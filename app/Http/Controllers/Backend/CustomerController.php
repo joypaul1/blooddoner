@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\BloodGroup;
 use App\Models\Division;
+use App\User;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -14,11 +15,27 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        // dd($request->all());
         $divisions = Division::get(['id', 'name']);
         $bloods = BloodGroup::get(['id', 'name']);
-        return view('backend.customer.index', compact('divisions', 'bloods'));
+        $users = User::query();
+        if($request->division_id){
+            $users = $users->where('division_id', $request->division_id);
+        }
+        if($request->city_id){
+            $users = $users->where('city_id', $request->city_id);
+        }
+        if($request->post_code_id){
+            $users = $users->where('postcode_id', $request->post_code_id);
+        }
+        if($request->blood_id){
+            $users = $users->where('blood_id', $request->blood_id);
+        }
+        $users = $users->paginate(20);
+
+        return view('backend.customer.index', compact('divisions', 'bloods', 'users'));
     }
 
     /**

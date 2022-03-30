@@ -210,12 +210,17 @@
                         <li class="text-white"><a href="/login">login</a></li>
                     </ul>
                 </div>
-
+                {{-- @dd($quickPage); --}}
                 <div class="col-lg-4">
                     <h5 class="text-white">Further Information</h5>
                     <ul>
-                        <li class="text-white"><a href="#">Terms & condition</a></li>
-                        <li class="text-white"><a href="#">Privacy policy</a></li>
+                        <li class="text-white"><a href="/our-team">Our Team</a></li>
+                        @forelse ($quickPage as $page)
+                        <li class="text-white"><a href="{{url('/quick-page', $page->slug)  }}">{{ $page->name??' '}}</a></li>
+
+                        @empty
+
+                        @endforelse
                     </ul>
                 </div>
                 <div class="col-lg-3">

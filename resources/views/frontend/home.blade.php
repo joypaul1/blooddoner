@@ -61,130 +61,70 @@
         </div>
       </section>
 
-      <section class="blood-search-container">
-        <form action="">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2 col-md-2 mt-2">
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1" class="form-label">Blood Group
-                        </label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Select </option>
-                            <option value="A+">A+</option>
-                            <option value="A-">A-</option>
-                            <option value="B+">B+</option>
-                            <option value="B-">B-</option>
-                            <option value="O+">O+</option>
-                            <option value="O-">O-</option>
-                            <option value="AB+">AB+</option>
-                            <option value="AB-">AB-</option>
-                          </select>
-                    </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 mt-2">
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1" class="form-label">District
-                        </label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected> Select District
+        <section class="blood-search-container">
+            <form action="{{ url('donor-search') }}" method="GET">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 mt-2">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1" class="form-label">Blood Group
+                                </label>
+                                <select class="form-select" name="blood_id" aria-label="Default select example" required>
+                                    <option value="{{ null }}">Select </option>
+                                    @forelse ($bloodGroups as $bloodGroup)
+                                    <option value="{{  $bloodGroup->id??' '}}" {{ request()->blood_id == $bloodGroup->id?'Selected': '' }}>{{ $bloodGroup->name??' ' }} </option>
+                                    @empty
 
-                            </option>
-                            <option value="Bagerhat">Bagerhat</option>
-                            <option value="Bandarban">Bandarban</option>
-                            <option value="Barguna">Barguna</option>
-                            <option value="Barisal">Barisal</option>
-                            <option value="Bhola">Bhola</option>
-                            <option value="Bogra">Bogra</option>
-                            <option value="Brahmanbaria">Brahmanbaria</option>
-                            <option value="Chandpur">Chandpur</option>
-                            <option value="Chapainawabganj">Chapainawabganj</option>
-                            <option value="Chittagong">Chittagong</option>
-                            <option value="Chuadanga">Chuadanga</option>
-                            <option value="Comilla">Comilla</option>
-                            <option value="Cox's Bazar">Cox's Bazar</option>
-                            <option value="Dhaka">Dhaka</option>
-                            <option value="Dinajpur">Dinajpur</option>
-                            <option value="Faridpur">Faridpur</option>
-                            <option value="Feni">Feni</option>
-                            <option value="Gaibandha">Gaibandha</option>
-                            <option value="Gazipur">Gazipur</option>
-                            <option value="Gopalganj">Gopalganj</option>
-                            <option value="Habiganj">Habiganj</option>
-                            <option value="Jamalpur">Jamalpur</option>
-                            <option value="Jessore">Jessore</option>
-                            <option value="Jhalokati">Jhalokati</option>
-                            <option value="Jhenaidah">Jhenaidah</option>
-                            <option value="Joypurhat">Joypurhat</option>
-                            <option value="Khagrachari">Khagrachari</option>
-                            <option value="Khulna">Khulna</option>
-                            <option value="Kishoreganj">Kishoreganj</option>
-                            <option value="Kurigram">Kurigram</option>
-                            <option value="Kushtia">Kushtia</option>
-                            <option value="Lakshmipur">Lakshmipur</option>
-                            <option value="Lalmonirhat">Lalmonirhat</option>
-                            <option value="Madaripur">Madaripur</option>
-                            <option value="Magura">Magura</option>
-                            <option value="Manikganj">Manikganj</option>
-                            <option value="Meherpur">Meherpur</option>
-                            <option value="Moulvibazar">Moulvibazar</option>
-                            <option value="Munshiganj">Munshiganj</option>
-                            <option value="Mymensingh">Mymensingh</option>
-                            <option value="Naogaon">Naogaon</option>
-                            <option value="Narail">Narail</option>
-                            <option value="Narayanganj">Narayanganj</option>
-                            <option value="Narsingdi">Narsingdi</option>
-                            <option value="Natore">Natore</option>
-                            <option value="Netrokona">Netrokona</option>
-                            <option value="Nilphamari">Nilphamari</option>
-                            <option value="Noakhali">Noakhali</option>
-                            <option value="Pabna">Pabna</option>
-                            <option value="Panchagarh">Panchagarh</option>
-                            <option value="Patuakhali">Patuakhali</option>
-                            <option value="Pirojpur">Pirojpur</option>
-                            <option value="Rajbari">Rajbari</option>
-                            <option value="Rajshahi">Rajshahi</option>
-                            <option value="Rangamati">Rangamati</option>
-                            <option value="Rangpur">Rangpur</option>
-                            <option value="Satkhira">Satkhira</option>
-                            <option value="Shariatpur">Shariatpur</option>
-                            <option value="Sherpur">Sherpur</option>
-                            <option value="Sirajganj">Sirajganj</option>
-                            <option value="Sunamganj">Sunamganj</option>
-                            <option value="Sylhet">Sylhet</option>
-                            <option value="Tangail">Tangail</option>
-                            <option value="Thakurgaon">Thakurgaon</option>
-                          </select>
-                    </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 mt-2">
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1" class="form-label">Date of Blood Donation
-                        </label>
-                        <input type="date" class="form-control date">
-                    </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 mt-2">
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1" class="form-label">Donor Type
-                        </label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option value="All">Select</option>
-                            <option value="All">All</option>
-                            <option value="Eligible">Eligible</option>
-                          </select>
-                    </div>
+                                    @endforelse
 
-                    </div>
-                    <div class="col-lg-1 col-md-1 mt-2">
-                        <div class="">
-                            <button type="submit" class="search_btn">Search</button>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 mt-2">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1" class="form-label">District
+                                </label>
+                                <select class="form-select" name="postcode_id" aria-label="Default select example">
+                                    @forelse ($postCodes as $postCode)
+                                    <option value="{{ $postCode->id }}" {{ request()->postcode_id == $postCode->id?'Selected': '' }}> {{$postCode->name?? ' '}}</option>
+                                    @empty
+
+                                    @endforelse
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 mt-2">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1" class="form-label">Date of Blood Donation
+                                </label>
+                                <input type="date" name="donate_date" class="form-control date"
+                                    @if (request()->donate_date)
+                                    value={{ date("Y-m-d", strtotime(request()->donate_date)) }}
+                                    @endif
+                                >
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 mt-2">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1" class="form-label">Donor Type
+                                </label>
+                                <select class="form-select" aria-label="Default select example" name="type">
+                                    <option value="All" {{ request()->type == 'All'?'Selected': ''  }}>All</option>
+                                    <option value="Eligible" {{ request()->type == 'Eligible'?'Selected': ''  }}>Eligible</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-1 col-md-1 mt-2">
+                            <div class="">
+                                <button type="submit" class="search_btn">Search</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
-    </section>
+            </form>
+        </section>
 
       <section class="our-network">
         <div class="container">

@@ -10,6 +10,7 @@ use App\Models\BloodGroup;
 use App\Models\City;
 use App\Models\Division;
 use App\Models\PostCode;
+use App\Models\QuickPage;
 use App\User;
 use Illuminate\Http\Request;
 use NabilAnam\SimpleUpload\SimpleUpload;
@@ -19,7 +20,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('frontend.home');
+        $bloodGroups = BloodGroup::get(['id', 'name']);
+        $postCodes = PostCode::orderBy('name')->get(['id', 'name']);
+        return view('frontend.home',compact('bloodGroups', 'postCodes'));
     }
 
     public function ourTeam()
@@ -41,6 +44,11 @@ class HomeController extends Controller
     {
         $aboutus= Aboutus::first();
         return view('frontend.aboutuse', compact('aboutus'));
+    }
+    public function quickPage($slug)
+    {
+        $page= QuickPage::whereSlug($slug)->first();
+        return view('frontend.quickPage', compact('page'));
     }
     public function registration()
     {

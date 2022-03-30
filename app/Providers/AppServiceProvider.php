@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\QuickPage;
 use App\Models\SiteInfo;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -33,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
             }
 
             view()->share('info', session()->get('info'));
+            view()->share('quickPage', QuickPage::get(['slug', 'name', 'id']));
 
             if ($view->getName() == 'backend.partials._footer') {
                 session()->forget('info');

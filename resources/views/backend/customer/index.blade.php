@@ -23,7 +23,7 @@
     ])
     <form class="form-horizontal"
     method="get"
-    action="{{route('backend.product.items.index')}}"
+    action=""
     role="form"
     enctype="multipart/form-data">
   <table class="table table-bordered">
@@ -60,7 +60,7 @@
             <select class="chosen-select" id="blood_id" name="blood_id">
                 <option value="">- Blood Group -</option>
                   @foreach($bloods as $blood)
-                    <option value="{{ $division->id }}"
+                    <option value="{{ $blood->id }}"
                         {{ request()->query('blood_id') == $blood->id ? 'selected' : '' }}>
                         {{ $blood->name }}
                     </option>
@@ -90,22 +90,26 @@
         <tr>
             <th class="bg-dark" style="width: 10%">SL</th>
             <th class="bg-dark" style="width: 20%">Name</th>
-            <th class="bg-dark" style="width: 20%">Address</th>
+            <th class="bg-dark" style="width: 20%">Mobile</th>
+            <th class="bg-dark" style="width: 20%">Email</th>
+            <th class="bg-dark" style="width: 20%">Blood Group</th>
             <th class="bg-dark" style="width: 20%">Image</th>
-            <th class="bg-dark" style="">Action</th>
+            {{-- <th class="bg-dark" style="">Action</th> --}}
         </tr>
-        {{-- @forelse($banners as $key => $banner) --}}
+        @forelse($users as $key => $user)
             <tr>
-                <td>01</td>
-                <td> Alex M. Doe</td>
-                <td> Netherlands Amsterdam</td>
+                <td>{{ $key+1 }}</td>
+                <td>{{ $user->name??" "}}</td>
+                <td> {{ $user->mobile??" "}}</td>
+                <td> {{ $user->email??" "}}</td>
+                <td> {{ optional($user->blood)->name??"-"}}</td>
                 <td>
-                    <img src="{{ asset('assets/images/avatars/profile-pic.jpg') }}"
+                    <img src="{{ asset( $user->image??'assets/images/avatars/profile-pic.jpg') }}"
                          height="80"
                          width="120"
                          alt="No Image">
                 </td>
-                <td>
+                {{-- <td>
                     <div class="btn-group btn-group-mini btn-corner">
                         <a href="{{ route('backend.customer.show') }}"
                            class="btn btn-xs btn-info"
@@ -120,19 +124,19 @@
                         </button>
                     </div>
                     <form action=""
-                          id="deleteCheck_{{-- {{ $banner->id }} --}}" method="GET">
+                          id="deleteCheck_{{ $banner->id }}" method="GET">
                         @csrf
                     </form>
-                </td>
+                </td> --}}
             </tr>
-        {{-- @empty --}}
-            {{-- <tr> --}}
-                {{-- <td colspan="3">No data available in table</td> --}}
-            {{-- </tr> --}}
-        {{-- @endforelse --}}
+        @empty
+            <tr>
+                <td colspan="6">No data available in table</td>
+            </tr>
+        @endforelse
         </tbody>
     </table>
-    {{-- @include('backend.partials._paginate', ['data' => $customers]) --}}
+    @include('backend.partials._paginate', ['data' => $users])
 @endsection
 
 @push('js')

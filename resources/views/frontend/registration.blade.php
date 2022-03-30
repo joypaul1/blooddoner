@@ -19,10 +19,10 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                <input class="form-control form-control-lg mb-2 w-100 @error('name') is-invalid @enderror" name="mobile"
+                                <input class="form-control form-control-lg mb-2 w-100 @error('mobile') is-invalid @enderror" name="mobile"
                                     type="number"
-                                    placeholder="Phone Number" aria-label=".form-control-lg example" required="">
-                                    @error('number')
+                                    placeholder="Mobile Number" aria-label=".form-control-lg example" required="">
+                                    @error('mobile')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

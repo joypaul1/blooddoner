@@ -10,6 +10,7 @@ Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
     Route::get('/user-login', 'HomeController@login');
     Route::get('/user-registration', 'HomeController@registration');
     Route::get('/about-us', 'HomeController@aboutUs');
+    Route::get('/quick-page/{slug}', 'HomeController@quickPage');
 
     Route::get('/getDivision', 'HomeController@division');
     Route::get('/getCity', 'HomeController@city');
