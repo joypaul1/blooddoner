@@ -14,6 +14,7 @@ use App\Models\QuickPage;
 use App\Models\SiteInfo;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use NabilAnam\SimpleUpload\SimpleUpload;
 use Symfony\Polyfill\Intl\Idn\Info;
 use Whoops\Run;
@@ -30,8 +31,8 @@ class HomeController extends Controller
     public function sendEmail(Request $request)
     {
         $info = SiteInfo::first();
-        \Mail::to($info->email??'blood@test.com')->send(new \App\Mail\MyTestMail($request->all()));
-        dd($request->all());
+        Mail::to($info->email??'blood@test.com')->send(new \App\Mail\MyTestMail($request->all()));
+        return  back();
     }
 
     public function ourTeam()

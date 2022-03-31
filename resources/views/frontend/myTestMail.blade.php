@@ -9,7 +9,6 @@
     <p>{{ $details['email'] }}</p>
     <p>{{ $details['mobile'] }}</p>
     <p>{{ $details['sms'] }}</p>
-
     <p>Thank you</p>
 </body>
 </html>
