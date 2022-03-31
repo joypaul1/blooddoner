@@ -18,7 +18,7 @@
         </li>
     </ul>
 </li>
-<li class="{{ strpos($routeName, 'backend.admins') === 0 ? 'open active' : ''}}">
+<li class="{{ strpos($routeName, 'backend.blood') === 0 ? 'open active' : ''}}">
     <a href="#" class="dropdown-toggle">
         <i class="menu-icon fa fa-sitemap"></i>
         <span class="menu-text">
@@ -29,8 +29,8 @@
     <b class="arrow"></b>
     <ul class="submenu">
 
-        <li class="{{ strpos($routeName, 'backend.product.admins') === 0 ? 'open' : ''}}">
-            <a href="{{route('backend.admins.index')}}">
+        <li class="{{ strpos($routeName, 'backend.blood.index') === 0 ? 'open' : ''}}">
+            <a href="{{route('backend.blood.index')}}">
                 <i class="menu-icon fa fa-caret-right"></i>
                 Blood Request
             </a>

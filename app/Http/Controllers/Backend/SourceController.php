@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Sources\StoreRequest;
 use App\Http\Requests\Sources\UpdateRequest;
+use App\Models\BloodRequest;
 use App\Models\Source;
 use Illuminate\Http\Request;
 use NabilAnam\SimpleUpload\SimpleUpload;
@@ -13,7 +14,7 @@ class SourceController extends Controller
 {
     public function index()
     {
-        $sources = Source::latest()->paginate(5);
+        $sources = BloodRequest::with('user')->latest()->paginate(5);
 
         return view('backend.sources.index', compact('sources'));
     }

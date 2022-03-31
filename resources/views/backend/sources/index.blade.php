@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
-@section('title','Source List')
+@section('title','Blood Request')
 @section('page-header')
-    <i class="fa fa-list"></i> Source List
+    <i class="fa fa-list"></i> Blood Request
 @stop
 @push('css')
     <style>
@@ -16,51 +16,37 @@
 @section('content')
     @include('backend.components.page_header', [
        'fa' => 'fa fa-pencil',
-       'name' => 'Create Source',
-       'route' => route('backend.purchase.sources.create')
+       'name' => 'Blood Request',
     ])
 
     <table class="table table-bordered">
         <tbody>
         <tr>
-            <th class="bg-dark" style="width: 10px">SL</th>
-            <th class="bg-dark" style="width: 40%">Name</th>
-            <th class="bg-dark" style="width: 40%">Image</th>
-            <th class="bg-dark" style="width: 30px">Action</th>
+            <th class="bg-dark" >SL</th>
+            <th class="bg-dark">Name</th>
+            <th class="bg-dark">Number Of Bags</th>
+            <th class="bg-dark">Number</th>
+            <th class="bg-dark">Date</th>
+            <th class="bg-dark">Description</th>
+            <th class="bg-dark" >Division</th>
+            <th class="bg-dark" >City</th>
+            <th class="bg-dark" >PostCode</th>
         </tr>
         @forelse($sources as $key => $source)
             <tr>
                 <td>{{ $key + 1 }}</td>
-                <td>{{ $source->name }}</td>
-                <td>
-                    <img src="{{ asset($source->image) }}"
-                         height="30"
-                         width="120"
-                         alt="No Image">
-                </td>
-                <td>
-                    <div class="btn-group btn-group-mini btn-corner">
-                        <a href="{{ route('backend.purchase.sources.edit', $source->id) }}"
-                           class="btn btn-xs btn-info"
-                           title="Edit">
-                            <i class="ace-icon fa fa-pencil"></i>
-                        </a>
-
-                        <button type="button" class="btn btn-xs btn-danger"
-                                onclick="delete_check({{$source->id}})"
-                                title="Delete">
-                            <i class="ace-icon fa fa-trash-o"></i>
-                        </button>
-                    </div>
-                    <form action="{{ route('backend.purchase.sources.destroy', $source->id)}}"
-                          id="deleteCheck_{{ $source->id }}" method="GET">
-                        @csrf
-                    </form>
-                </td>
+                <td>{{ optional($source->user)->name??' ' }}</td>
+                <td>{{ $source->number_of_bags??' ' }}</td>
+                <td>{{ $source->extra_number??' ' }}</td>
+                <td>{{ date('d-m-y', strtotime($source->date??'-')) }}</td>
+                <td>{{ $source->description??' ' }}</td>
+                <td>{{ optional($source->division)->name??' ' }}</td>
+                <td>{{ optional($source->city)->name??' ' }}</td>
+                <td>{{ optional($source->postcode)->name??' ' }}</td>
             </tr>
         @empty
             <tr>
-                <td colspan="6">No data available in table</td>
+                <td colspan="9">No data available in table</td>
             </tr>
         @endforelse
         </tbody>

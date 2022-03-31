@@ -3,21 +3,14 @@
 use Illuminate\Support\Facades\Route;
 
 // Sources
-Route::group(['prefix' => 'sources'], function () {
+Route::group(['prefix' => 'blood-request'], function () {
     Route::get('/', 'SourceController@index')
-        ->name('backend.purchase.sources.index');
+        ->name('backend.blood.index');
     Route::get('/create', 'SourceController@create')
         ->name('backend.purchase.sources.create');
     Route::get('/edit/{source}', 'SourceController@edit')
         ->name('backend.purchase.sources.edit');
 
-    // non view
-    Route::get('/destroy/{source}', 'SourceController@destroy')
-        ->name('backend.purchase.sources.destroy');
-    Route::post('/store', 'SourceController@store')
-        ->name('backend.purchase.sources.store');
-    Route::post('/update/{source}', 'SourceController@update')
-        ->name('backend.purchase.sources.update');
 });
 
 // Purchases

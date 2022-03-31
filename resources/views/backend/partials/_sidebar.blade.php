@@ -14,11 +14,7 @@
         {{-- Dashboard --}}
         @include('backend.partials.sidebar_modules.dashboard')
 
-        {{-- Order --}}
-        {{-- @include('backend.partials.sidebar_modules.order') --}}
 
-        {{-- Purchase --}}
-        {{-- @include('backend.partials.sidebar_modules.purchase') --}}
 
         {{-- Product --}}
         @include('backend.partials.sidebar_modules.product')
