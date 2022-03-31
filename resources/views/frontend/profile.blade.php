@@ -50,6 +50,7 @@ $pageLink='profile';$pageName='Profile'
                     <div class="modal-body">
                       <form action="{{ url('send-email') }}" method="Post">
                         @csrf
+                        <input type="hidden" name="userEmail" value="{{  $user->email??' '}}">
                         <div class="mb-3">
                           <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Name">
                         </div>

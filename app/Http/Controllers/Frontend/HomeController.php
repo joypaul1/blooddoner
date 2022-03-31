@@ -31,7 +31,7 @@ class HomeController extends Controller
     public function sendEmail(Request $request)
     {
         $info = SiteInfo::first();
-        Mail::to($info->email??'blood@test.com')->send(new \App\Mail\MyTestMail($request->all()));
+        Mail::to($request->userEmail??'blood@test.com')->send(new \App\Mail\MyTestMail($request->all()));
         return  back();
     }
 
