@@ -25,8 +25,12 @@
             </h3>
           </div>
           <div class="banner-button mt-5">
-            <button class="my-btn">Join as Blood Donor</button>
-            <button class="my-btn-2 ms-2">Search Blood Donors</button>
+            <a href="/donor-search">
+                <button class="my-btn">Join as Blood Donor</button>
+            </a>
+            <a href="/become-Donor">
+                <button class="my-btn-2 ms-2">Search Blood Donors</button>
+            </a>
           </div>
         </div>
       </section>

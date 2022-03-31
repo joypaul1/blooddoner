@@ -33,7 +33,7 @@ $pageLink='profile';$pageName='Profile'
             </div>
             <div class="col-lg-4 d-flex align-items-center justify-content-center">
               <div class="two_btn">
-                <a href="#"  onclick='call('+$user->number+');return false;'  class="send_msg">Call </a>
+                <a href="#"  onclick="call('+$user->number+');return false;"  class="send_msg">Call </a>
                 <a href="#" class="send_msg" data-bs-toggle="modal" data-bs-target="#exampleModal">Send message</a>
               </div>
 
@@ -48,18 +48,19 @@ $pageLink='profile';$pageName='Profile'
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <form>
+                      <form action="{{ url('send-email') }}" method="Post">
+                        @csrf
                         <div class="mb-3">
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Name">
+                          <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Name">
                         </div>
                         <div class="mb-3">
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Email">
+                          <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Email">
                         </div>
                         <div class="mb-3">
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Phone Number">
+                          <input type="text" class="form-control"  name="mobile" id="exampleInputPassword1" placeholder="Phone Number">
                         </div>
                         <div class="mb-3">
-                          <textarea name="" id="" class="form-control" placeholder="Your Message" cols="20" rows="5"></textarea>
+                          <textarea class="form-control" name="sms" placeholder="Your Message" cols="20" rows="5"></textarea>
                         </div>
                         <button type="submit" class="search_btn">
                           Send Message

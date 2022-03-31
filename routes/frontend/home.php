@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => '/', 'namespace' => 'Frontend'], function () {
     Route::get('/', 'HomeController@index');
     Route::get('/user-login', 'HomeController@login');
+    Route::post('/send-email', 'HomeController@sendEmail');
     Route::get('/user-registration', 'HomeController@registration');
     Route::get('/about-us', 'HomeController@aboutUs');
     Route::get('/quick-page/{slug}', 'HomeController@quickPage');

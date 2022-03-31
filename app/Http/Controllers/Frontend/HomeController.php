@@ -11,9 +11,11 @@ use App\Models\City;
 use App\Models\Division;
 use App\Models\PostCode;
 use App\Models\QuickPage;
+use App\Models\SiteInfo;
 use App\User;
 use Illuminate\Http\Request;
 use NabilAnam\SimpleUpload\SimpleUpload;
+use Symfony\Polyfill\Intl\Idn\Info;
 use Whoops\Run;
 
 class HomeController extends Controller
@@ -23,6 +25,13 @@ class HomeController extends Controller
         $bloodGroups = BloodGroup::get(['id', 'name']);
         $postCodes = PostCode::orderBy('name')->get(['id', 'name']);
         return view('frontend.home',compact('bloodGroups', 'postCodes'));
+    }
+
+    public function sendEmail(Request $request)
+    {
+        $info = SiteInfo::first();
+        \Mail::to($info->email??'blood@test.com')->send(new \App\Mail\MyTestMail($request->all()));
+        dd($request->all());
     }
 
     public function ourTeam()

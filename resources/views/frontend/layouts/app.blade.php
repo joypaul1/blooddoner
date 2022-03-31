@@ -197,8 +197,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <img src="{{ asset('/') }}frontend/images/logo.png" alt="">
-                    <p class="text-white my-2">Rokto is an automated blood service that connects blood searchers with
-                        voluntary blood donors in a moment through SMS and website.</p>
+                    <p class="text-white my-2">{!!  $info->short_desc !!}</p>
                 </div>
                 <div class="col-lg-4">
                     <h5 class="text-white">Links</h5>
