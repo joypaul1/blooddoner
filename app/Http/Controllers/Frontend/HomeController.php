@@ -107,7 +107,13 @@ class HomeController extends Controller
         $data = $request->except(['_token', 'make_payment']);
         $time = strtotime($request->donatedate);
         $data['nextDate'] = date("Y-m-d", strtotime("+3 month", $time));
-        $user->update( $data);
+        $allUser = User::get(['email']);
+        $user->update($data);
+        foreach ($allUser as $key => $userData) {
+            $sendData = $user;
+            $sendData['blood_group'] = BloodGroup::whereId($request->blood_id)->first()->name;
+            Mail::to($userData->email??'blood@test.com')->send(new \App\Mail\NotifyMail($sendData));
+        }
         return back();
     }
 

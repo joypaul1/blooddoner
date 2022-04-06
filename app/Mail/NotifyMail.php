@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class MyTestMail extends Mailable
+class NotifyMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -23,6 +23,8 @@ class MyTestMail extends Mailable
         $this->details = $details;
     }
 
+
+
     /**
      * Build the message.
      *
@@ -32,6 +34,6 @@ class MyTestMail extends Mailable
     {
         $info = SiteInfo::first();
         return $this->subject($info->name)
-                    ->view('frontend.myTestMail')->with('details', $this->details);
+                    ->view('frontend.notifyMail')->with('details', $this->details);
     }
 }
