@@ -25,7 +25,8 @@ class HomeController extends Controller
     {
         $bloodGroups = BloodGroup::get(['id', 'name']);
         $postCodes = PostCode::orderBy('name')->get(['id', 'name']);
-        return view('frontend.home',compact('bloodGroups', 'postCodes'));
+        $donors = User::whereNotNull('postcode_id')->count();
+        return view('frontend.home',compact('bloodGroups', 'postCodes', 'donors'));
     }
 
     public function sendEmail(Request $request)

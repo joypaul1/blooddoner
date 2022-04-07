@@ -86,7 +86,7 @@
                         </div>
                         <div class="col-lg-3 col-md-3 mt-2">
                             <div class="form-group">
-                                <label for="exampleFormControlInput1" class="form-label">District
+                                <label for="exampleFormControlInput1" class="form-label">Area
                                 </label>
                                 <select class="form-select" name="postcode_id" aria-label="Default select example">
                                     @forelse ($postCodes as $postCode)
@@ -137,7 +137,7 @@
             <div class="col-lg-4 col-sm-12">
               <div class="our-network-box">
                 <i class="fa-solid fa-users"></i>
-                <h3>5302 Donors</h3>
+                <h3>{{$donors}} Donors</h3>
               </div>
             </div>
             <div class="col-lg-4 col-sm-12">
