@@ -28,7 +28,7 @@ $pageLink='donner-search';$pageName='Search Donors'
                     </div>
                     <div class="col-lg-3 col-md-3 mt-2">
                         <div class="form-group">
-                            <label for="exampleFormControlInput1" class="form-label">District
+                            <label for="exampleFormControlInput1" class="form-label">Area
                             </label>
                             <select class="form-select" name="postcode_id" aria-label="Default select example">
                                 @forelse ($postCodes as $postCode)

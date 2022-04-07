@@ -47,14 +47,22 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="/blood-request">Add Blood Request</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item dropdown">
                         @guest
                             <a class="nav-link active" href="/user-login">login</a>
                         @else
-                            <a class="nav-link active" href="/">{{ auth()->user()->name }}</a>
+                            {{-- <a class="nav-link active" href="/">{{ auth()->user()->name }}</a> --}}
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ auth()->user()->name }}
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                              </ul>
 
                         @endguest
                         </li>
+
+
                         <li class="nav-item">
                             <a class="active" href="#">
                                 <img src="{{ asset('/') }}frontend/images/search-icon.png" alt="" />
