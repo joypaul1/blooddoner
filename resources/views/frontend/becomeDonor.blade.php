@@ -99,7 +99,7 @@
                                 <fieldset>
                                     <div class="form-card">
                                         <label> Donate Date </label>
-                                        <input type="date" name="donatedate" value="{{ date('Y-m-d',strtotime(auth()->user()->donatedate)??'-') }}" class="form-control">
+                                        <input type="date" name="donatedate" value="{{ date('Y-m-d',strtotime(auth()->user()->donatedate)?? date('Y-m-d') ) }}" class="form-control">
 
                                     </div> <input type="button" name="previous" class="previous action-button-previous"
                                         value="Previous" /> <input type="submit" name="make_payment"
