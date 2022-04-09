@@ -23,7 +23,6 @@
                             @forelse ($bloodGroups as $blood)
                                 <option  value="{{ $blood->id??' ' }}">{{ $blood->name??""}} </option>
                             @empty
-
                             @endforelse
 
                         </select>
@@ -31,23 +30,23 @@
                     <div class="form-group my-2">
                         <label for="exampleFormControlInput1" class="form-label">Numbers Of bag
                         </label>
-                        <input type="number" min="1"  name="number_of_bags" class="form-control date">
+                        <input type="number" min="1"  name="number_of_bags" class="form-control date" required>
                     </div>
                     <div class="form-group my-2">
                         <label for="exampleFormControlInput1" class="form-label">When Needed blood?
                         </label>
-                        <input type="date" class="form-control date" name="date">
+                        <input type="date" class="form-control date" name="date" required>
                     </div>
                     <div class="form-group my-2">
                         <label for="exampleFormControlInput1" class="form-label">Extra Contact Number.
                         </label>
-                        <input type="text" placeholder="Contact Number" name="extra_number" class="form-control date">
+                        <input type="text" placeholder="Contact Number" name="extra_number" class="form-control date" required>
                     </div>
                     <div class="form-group my-2">
                         <label for="exampleFormControlInput1" class="form-label">Why Need Blood?
                         </label>
                         <textarea name="description" id="" class="form-control" placeholder="Your Message" cols="20"
-                            rows="5"></textarea>
+                            rows="5" required></textarea>
                     </div>
                     <div class="form-group my-2">
                         <label for="exampleFormControlInput1" class="form-label">Division
