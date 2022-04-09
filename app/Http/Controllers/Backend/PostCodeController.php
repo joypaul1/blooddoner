@@ -120,5 +120,9 @@ class PostCodeController extends Controller
     {
         return response()->json(['cities' => PostCode::where('city_id', $id)->get(['id', 'name']) ]) ;
     }
+    public function getCity ($id)
+    {
+        return City::where('division_id', $id)->get(['id', 'name']);
+    }
 
 }
