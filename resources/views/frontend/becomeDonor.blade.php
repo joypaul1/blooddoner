@@ -45,7 +45,7 @@
                                         </select>
                                         <br>
                                         <label for="">Date Of Birth</label>
-                                        <input type="date" name="dob" value="{{ date('Y-m-d',strtotime(auth()->user()->dob)??'-') }}"
+                                        <input type="date" name="dob" value="{{ date('Y-m-d',strtotime(auth()->user()->dob??' ')) }}"
                                             placeholder="date of birth" />
                                     </div>
                                     <input type="button" class="next action-button" value="Next Step" />
