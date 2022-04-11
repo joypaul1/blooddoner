@@ -21,7 +21,6 @@ $pageLink='profile';$pageName='Profile'
                     <ul>
                       <li><span>Name : {{ $user->name??' ' }}</span></li>
                       <li><span>BLood Group :  {{ optional($user->blood)->name??' ' }}</span></li>
-
                       <li><span>Division :  {{  optional($user->division)->name??' ' }}</span></li>
                       <li><span>City :  {{  optional($user->city)->name??' ' }}</span></li>
                       <li><span>Post Code :  {{  optional($user->postcode)->name??' '}}</span></li>
@@ -34,7 +33,7 @@ $pageLink='profile';$pageName='Profile'
             <div class="col-lg-4 d-flex align-items-center justify-content-center">
               <div class="two_btn">
                 <a href="#"  onclick="call('+$user->number+');return false;"  class="send_msg">Call </a>
-                <a href="#" class="send_msg" data-bs-toggle="modal" data-bs-target="#exampleModal">Send message</a>
+                <a href="#" class="send_msg" data-bs-toggle="modal" data-bs-target="#exampleModal">Send Email</a>
               </div>
 
               <!-- Modal -->

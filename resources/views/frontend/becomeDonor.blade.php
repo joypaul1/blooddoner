@@ -45,10 +45,10 @@
                                         </select>
                                         <br>
                                         <label for="">Date Of Birth</label>
-                                        <input type="date" name="dob" value="{{ date('Y-m-d',strtotime(auth()->user()->dob??' ')) }}"
+                                        <input type="date" name="dob" id="dob" value="{{ date('Y-m-d',strtotime(auth()->user()->dob??date('Y-m-d') )) }}"
                                             placeholder="date of birth" />
                                     </div>
-                                    <input type="button" class="next action-button" value="Next Step" />
+                                    <input type="button" class="next action-button" disabled value="Next Step" />
                                 </fieldset>
                                 <fieldset>
                                     @php
@@ -132,26 +132,37 @@
 
 @push('js')
     <script>
-        // $('#division_id').click(function () {
-        //     var divId = $(this).val();
-        //     var url = "{{ url('getDivision') }}";
-        //     // url = url.replace(':divId', divId);
-        //     $.ajax({
-        //         url      : url,
-        //         method   : 'GET',
-        //         dataType : 'json',
-        //         success  : function(data) {
-        //             $("#division_id").empty();
-        //             // $("#city_id").append('<Option value="' + -1 + '">' + "--select--" + '</Option>');
-        //             $.each(data, function (key, value) {
-        //                 $("#division_id").append('<option value="' + value.id + '">' + value.name + '</option>');
-        //             });
-        //         },
-        //         error: function(errorMessage) {
-        //             alert(errorMessage);
-        //         },
-        //     });
-        // });
+        $(document).ready(function(){
+            dob = new Date($(this).val());
+                var today = new Date();
+                var age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
+                if (age >= 18) {
+                    $('#dob').css("border","1px solid black");
+                    $('.next').prop('disabled', false);
+                }else{
+                    $('#dob').css("border","1px solid red");
+                    $('.next').prop('disabled', true);
+
+                }
+             $(document).on('change', '#dob', function(){
+                dob = new Date($(this).val());
+                var today = new Date();
+                var age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
+                if (age >= 18) {
+                    $('#dob').css("border","1px solid black");
+                    $('.next').prop('disabled', false);
+                }else{
+                    $('#dob').css("border","1px solid red");
+                    $('.next').prop('disabled', true);
+
+                }
+            });
+        });
+
+
+
+
+
         $('#division_id').change(function() {
             var divId = $(this).val();
             var url = "{{ url('getCity') }}";

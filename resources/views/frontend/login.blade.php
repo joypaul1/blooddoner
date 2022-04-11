@@ -13,24 +13,22 @@
                 {{-- <form action="{{ route('login') }}" method="Post" class="w-100">
                     @csrf --}}
                     <input id="email" type="email" class="form-control  form-control-lg mb-2 w-100 @error('email') is-invalid @enderror"
-                    name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="example@gmail.com"  autofocus>
                     @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
                     <input id="password" type="password"
-                        class="form-control form-control-lg mb-2 w-100 @error('password') is-invalid @enderror" name="password"
-                        required autocomplete="current-password">
+                        class="form-control form-control-lg mb-2 w-100 @error('password') is-invalid @enderror"  name="password"
+                        required autocomplete="current-password"  placeholder="**********"  >
 
                     @error('password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                  {{-- <input class="form-control form-control-lg mb-2 w-100" type="email" placeholder="Email" aria-label=".form-control-lg example" required=""> --}}
-                  {{-- <input class="form-control form-control-lg mb-2 w-100" type="password" placeholder="Password" aria-label=".form-control-lg example" required=""> --}}
-                  <div class="mx-auto text-center mt-3">
+
                       <button type="submit" class="btn submit-btn shadow-lg">
                           LOG IN
                         </button>
@@ -46,3 +44,19 @@
 
   </main>
 @endsection
+@push('js')
+<script>
+
+    $(document).on('input', '#email',function(){
+        var inputtxt= $(this).val();
+        if(/^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i.test(inputtxt)){
+            $('#email').css("border","1px solid black").trigger("change");
+            $(':input[type="submit"]').prop('disabled', false);
+        }else{
+            $('#email').css("border","1px solid red").trigger("change");
+            $(':input[type="submit"]').prop('disabled', true);
+        }
+    });
+</script>
+
+@endpush

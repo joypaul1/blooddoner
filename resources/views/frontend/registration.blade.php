@@ -20,15 +20,15 @@
                                         </span>
                                     @enderror
                                 <input class="form-control form-control-lg mb-2 w-100 @error('mobile') is-invalid @enderror" name="mobile"
-                                    type="number"
-                                    placeholder="Mobile Number" aria-label=".form-control-lg example" required="">
+                                    type="number" id="mobile"
+                                    placeholder="01*********" aria-label=".form-control-lg example" required="">
                                     @error('mobile')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback error" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                <input class="form-control form-control-lg mb-2 w-100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" type="email" placeholder="Email"
-                                    aria-label=".form-control-lg example" required="">
+                                <input class="form-control form-control-lg mb-2 w-100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" type="email" placeholder="example@email.com"
+                                    aria-label=".form-control-lg example" id="email" required="">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -42,10 +42,10 @@
                                         </span>
                                     @enderror
                                 <input class="form-control form-control-lg mb-2 w-100" name="password_confirmation"  type="password"
-                                    placeholder="Password" aria-label=".form-control-lg example" required>
+                                    placeholder="Retype Password" aria-label=".form-control-lg example" required>
 
                                 <div class="text-center mt-3">
-                                    <button type="submit" class="btn submit-btn shadow-lg">
+                                    <button type="submit" disabled class="btn submit-btn shadow-lg">
                                         REGISTER
                                     </button>
                                 </div>
@@ -62,3 +62,29 @@
 
 </main>
 @endsection
+@push('js')
+<script>
+    $(document).on('input', '#mobile',function(){
+        var inputtxt= $(this).val();
+        if(/^(01[6789])(\d{8})$/.test(inputtxt)){
+            $('#mobile').css("border","1px solid black").trigger("change");
+            $(':input[type="submit"]').prop('disabled', false);
+
+        }else{
+            $('#mobile').css("border","1px solid red").trigger("change");
+            $(':input[type="submit"]').prop('disabled', true);
+        }
+    });
+    $(document).on('input', '#email',function(){
+        var inputtxt= $(this).val();
+        if(/^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i.test(inputtxt)){
+            $('#email').css("border","1px solid black").trigger("change");
+            $(':input[type="submit"]').prop('disabled', false);
+        }else{
+            $('#email').css("border","1px solid red").trigger("change");
+            $(':input[type="submit"]').prop('disabled', true);
+        }
+    });
+</script>
+
+@endpush

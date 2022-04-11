@@ -16,8 +16,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use NabilAnam\SimpleUpload\SimpleUpload;
-use Symfony\Polyfill\Intl\Idn\Info;
-use Whoops\Run;
+
 
 class HomeController extends Controller
 {
@@ -95,7 +94,6 @@ class HomeController extends Controller
 
     function sendBloodRequest(Request $request)
     {
-        // dd($request->all());
         $data=  $request->all();
         $data['user_id']=  auth()->id()??1;
         BloodRequest::create( $data);
