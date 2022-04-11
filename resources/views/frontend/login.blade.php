@@ -21,7 +21,7 @@
                     @enderror
                     <input id="password" type="password"
                         class="form-control form-control-lg mb-2 w-100 @error('password') is-invalid @enderror"  name="password"
-                        required autocomplete="current-password"  placeholder="**********"  >
+                        required autocomplete="current-password"  placeholder="password"  >
 
                     @error('password')
                     <span class="invalid-feedback" role="alert">

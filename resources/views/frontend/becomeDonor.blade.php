@@ -24,8 +24,10 @@
                                         <h2 class="fs-title">Account Information</h2>
                                         <label for="">User Name</label>
 
-                                        <input type="text" name="name" value="{{ auth()->user()->name ?? ' ' }}"
-                                            placeholder="User Name" />
+                                        <input type="text" name="name" value="{{ auth()->user()->name ?? ' ' }}" placeholder="User Name" required/>
+                                        <label for="">User NID</label>
+                                        <input type="text" name="nid" value="{{ auth()->user()->nid ?? ' ' }}" placeholder="User NID" required/>
+
                                         <label for="">Blood Group</label>
                                         <select class="form-select" name="blood_id">
                                             <option selected="">Select Blood Group </option>
